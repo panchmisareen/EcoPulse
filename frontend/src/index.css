@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --eco-green: #15803D;
+    --eco-green-dark: #0F172A;
+    --eco-green-light: #BBF7D0;
+    --eco-bg: #F4F4F0;
+    --eco-surface: #FFFFFF;
+    --eco-text: #0F172A;
+    --eco-muted: #64748B;
+    --eco-border: #E2E8F0;
+    --studio-bg: #F4F4F0;
+    --studio-noir: #121614;
+    --kinetic-orange: #FF5500;
+    --kinetic-emerald: #00D26A;
+  }
+
+  * {
+    @apply border-eco-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #F4F4F0;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.015em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-eco-green focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-eco-green text-white hover:bg-forest-900 active:scale-95 shadow-eco hover:shadow-eco-md;
+  }
+
+  .btn-secondary {
+    @apply btn bg-eco-green-light text-eco-green-dark hover:bg-lime-bright active:scale-95;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-eco-green text-eco-green hover:bg-eco-green hover:text-white active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply btn text-eco-muted hover:bg-sage-light hover:text-eco-text active:scale-95;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 active:scale-95;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3.5 text-base rounded-2xl;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-3xl border border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)];
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  .card-p {
+    @apply card p-6;
+  }
+
+  /* Kinetic Studio Luxury Bento Styles (Design by Shivaa / Kinetic Inspired) */
+  .card-studio {
+    background: #FFFFFF;
+    border-radius: 28px;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.02);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-studio:hover {
+    box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.09), 0 4px 10px rgba(15, 23, 42, 0.03);
+    transform: translateY(-2px);
+  }
+
+  .card-noir {
+    background: #111613;
+    color: #FFFFFF;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-noir:hover {
+    border-color: rgba(0, 229, 117, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 229, 117, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .card-kinetic-fire {
+    background: linear-gradient(135deg, #1A0D06 0%, #291206 50%, #150802 100%);
+    color: #FFFFFF;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 85, 0, 0.25);
+    box-shadow: 0 20px 40px -12px rgba(255, 85, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-kinetic-fire:hover {
+    border-color: rgba(255, 85, 0, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(255, 85, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Kinetic Capsule Buttons */
+  .btn-capsule {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full font-bold text-sm tracking-tight text-white transition-all duration-300 shadow-md;
+    background: #111613;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .btn-capsule:hover {
+    background: #000000;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .btn-capsule-emerald {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full font-bold text-sm tracking-tight text-white transition-all duration-300;
+    background: linear-gradient(135deg, #15803D 0%, #166534 100%);
+    box-shadow: 0 10px 20px -5px rgba(21, 128, 61, 0.35);
+  }
+  .btn-capsule-emerald:hover {
+    box-shadow: 0 15px 30px -5px rgba(21, 128, 61, 0.5);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .btn-capsule-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200;
+    background: #FFFFFF;
+    color: #0F172A;
+    border: 1px solid #E2E8F0;
+  }
+  .btn-capsule-ghost:hover {
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+    transform: translateY(-1px);
+  }
+
+  /* MotionSites GreenTech Glass & 3D Cards */
+  .glass-greentech {
+    background: rgba(13, 23, 17, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(52, 211, 153, 0.16);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-greentech-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-greentech-hover:hover {
+    border-color: rgba(0, 255, 135, 0.4);
+    box-shadow: 0 0 30px rgba(0, 255, 135, 0.18), 0 10px 40px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+  }
+
+  .btn-neon {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm tracking-wide text-black transition-all duration-300;
+    background: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  .btn-neon:hover {
+    box-shadow: 0 0 35px rgba(0, 255, 135, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px) scale(1.02);
+  }
+  .btn-neon:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-outline-neon {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300;
+    color: #00FF87;
+    background: rgba(0, 255, 135, 0.05);
+    border: 1px solid rgba(0, 255, 135, 0.3);
+  }
+  .btn-outline-neon:hover {
+    background: rgba(0, 255, 135, 0.15);
+    border-color: #00FF87;
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .text-neon-glow {
+    text-shadow: 0 0 25px rgba(0, 255, 135, 0.45);
+  }
+
+  .bg-grid-greentech {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(52, 211, 153, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(52, 211, 153, 0.05) 1px, transparent 1px);
+  }
+
+  /* Badges / Pills */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-green {
+    @apply badge bg-forest-100 text-forest-800;
+  }
+
+  .badge-lime {
+    @apply badge bg-eco-green-light text-eco-green-dark;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .badge-purple {
+    @apply badge bg-purple-100 text-purple-800;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-100 text-orange-800;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full px-4 py-2.5 bg-white border-2 border-eco-border rounded-xl text-eco-text text-sm placeholder-eco-muted focus:border-eco-green focus:ring-2 focus:ring-eco-green/10 outline-none transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-eco-text mb-1.5;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply h-2 bg-sage-light rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-eco-green rounded-full transition-all duration-700 ease-out;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply card p-4 flex flex-col gap-1;
+  }
+
+  .stat-label {
+    @apply text-xs font-medium text-eco-muted uppercase tracking-wider;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-eco-text;
+  }
+
+  /* Section headings */
+  .section-title {
+    @apply text-xl font-bold text-eco-text;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-eco-muted mt-0.5;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse bg-gradient-to-r from-sage-light via-white to-sage-light bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+
+  /* Mission category colors */
+  .cat-travel { @apply bg-forest-100 text-forest-800; }
+  .cat-meals { @apply bg-lime-100 text-lime-800; }
+  .cat-movement { @apply bg-purple-100 text-purple-800; }
+  .cat-hydration { @apply bg-blue-100 text-blue-800; }
+
+  /* Glassmorphism for hero sections */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-forest-900/60 backdrop-blur-md border border-white/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Category-specific accent colors */
+  .accent-travel { color: #26734D; }
+  .accent-meals { color: #65A30D; }
+  .accent-movement { color: #7C3AED; }
+  .accent-hydration { color: #2563EB; }
+
+  .bg-accent-travel { background-color: #F0FDF4; }
+  .bg-accent-meals { background-color: #F7FEE7; }
+  .bg-accent-movement { background-color: #FAF5FF; }
+  .bg-accent-hydration { background-color: #EFF6FF; }
+}
+
+/* Leaflet Map & Marker Enhancements */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+  font-family: inherit;
+  background-color: #f8fafc;
+}
+
+.leaflet-tile {
+  visibility: inherit !important;
+}
+
+.custom-campus-marker,
+.pw-ioi-center-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 18px !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding: 4px !important;
+}
+
